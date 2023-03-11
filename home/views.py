@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 
 def home(req):
-    template = loader.get_template('home1.html')
+    template = loader.get_template('home/index.html')
     return HttpResponse(template.render())
 
 def contact(req):
