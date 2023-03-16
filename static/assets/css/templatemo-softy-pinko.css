@@ -113,12 +113,12 @@ body {
 }
 
 ::selection {
-  background: #ff589e;
+  background: #fd0c0c;
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #ff589e;
+  background: #fd0c0c;
   color: #fff;
 }
 
@@ -314,7 +314,7 @@ a.main-button-slider {
   font-size: 13px;
   border-radius: 20px;
   padding: 12px 20px;
-  background-color: #ff589e;
+  background-color: #fd0c0c;
   text-transform: uppercase;
   color: #fff;
   letter-spacing: 0.25px;
@@ -343,7 +343,7 @@ a.main-button {
 }
 
 a.main-button:hover {
-  background-color: #ff589e;
+  background-color: #fd0c0c;
 }
 
 button.main-button {
@@ -364,7 +364,7 @@ button.main-button {
 }
 
 button.main-button:hover {
-  background-color: #ff589e;
+  background-color: #fd0c0c;
 }
 
 
@@ -448,7 +448,7 @@ header
 }
 
 .header-area .main-nav .nav li a:hover {
-  color: #ff589e;
+  color: #fd0c0c;
 }
 
 .header-area .main-nav .menu-trigger {
@@ -560,7 +560,7 @@ header
 }
 
 .header-area.header-sticky .nav li a.active {
-  color: #ff589e;
+  color: #fd0c0c;
 }
 
 @media (max-width: 1200px) {
@@ -769,7 +769,7 @@ features
 }
 
 .features-small-item:hover .icon {
-  background-color: #ff589e;
+  background-color: #fd0c0c;
 }
 
 .features-small-item .icon {
@@ -1175,7 +1175,7 @@ team
   display: block;
   font-weight: 400;
   font-size: 15px;
-  color: #ff589e;
+  color: #fd0c0c;
   letter-spacing: 0.25px;
 }
 
@@ -1214,7 +1214,7 @@ pricing
 }
 
 .pricing-item.active .pricing-body .price-wrapper {
-  background-color: #ff589e;
+  background-color: #fd0c0c;
 }
 
 .pricing-item.active .pricing-body .price-wrapper .currency {
@@ -1351,7 +1351,7 @@ blog
 }
 
 .blog-post-thumb h3 a:hover {
-  color: #ff589e;
+  color: #fd0c0c;
 }
 
 .blog-post-thumb .text {
@@ -1458,7 +1458,7 @@ footer .social li {
 }
 
 footer .social li a {
-  color: #9d5bd9;
+  color: #742a9f;
    text-align: center;
   background-color: #fff;
   width: 36px;
@@ -1474,7 +1474,7 @@ footer .social li a {
 }
 
 footer .social li a:hover {
-  background-color: #ff589e;
+  background-color: #fd0c0c;
   color: #fff;
 }
 
@@ -1509,15 +1509,11 @@ preloader
 --------------------------------------------- 
 */
 #preloader {
-  overflow: hidden;
-  background-image: linear-gradient(135deg, #a759d1 0%, #8261ee 100%);
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  position: fixed;
-  z-index: 9999;
-  color: #fff;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	background-image: #21242d url('C:/Users/EQUAL/Documents/GitHub/First-project/static/assets/images/to/loader.gif') no-repeat center;
+	z-index: 999;
 }
 
 #preloader .jumper {
