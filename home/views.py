@@ -1,7 +1,13 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
+
+
 
 def home(req):
-    template = loader.get_template('home/index.html')
-    return HttpResponse(template.render())
+    return render(req, 'home/index.html')
+
+def about(req):
+    return render(req, 'home/about.html')
+
+def contact(req):
+    return render(req, 'home/contac.html')
+
