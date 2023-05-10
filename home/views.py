@@ -1,8 +1,13 @@
 from django.shortcuts import render
-from .models import student
+from .models import *
 
 def home(req):
-    return render(req, 'home/index.html')
+    cheap = CheapPackage.objects.all()
+    luxuray = LuxurayPackage.objects.all()
+    camping = CampingPackage.objects.all()
+
+    context = {'cheap':cheap, 'luxuray':luxuray, 'camping':camping}
+    return render(req, 'home/index.html', context = context)
 
 def about(req):
     return render(req, 'home/about.html')
@@ -10,12 +15,7 @@ def about(req):
 def contact(req):
     return render(req, 'home/contact.html')
 
-def test(req):
-    students = student.objects.all()[2]
-    context = {
-        'students' : students
-    }
-    return render(req, 'home/test.html', context = context)
+
 
 def blog_home(req):
     return render(req, 'home/blog-home.html')
