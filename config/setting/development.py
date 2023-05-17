@@ -27,12 +27,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'blog',
     
 ]
 
 STATIC_ROOT = BASE_DIR.joinpath('/static')
 
-MEDIA_ROOT = BASE_DIR.joinpath('/media')
+MEDIA_ROOT = BASE_DIR.joinpath('media')
 
 
 STATICFILES_DIRS = [

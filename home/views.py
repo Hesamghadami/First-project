@@ -17,8 +17,3 @@ def contact(req):
 
 
 
-def blog_home(req):
-    return render(req, 'home/blog-home.html')
-
-def blog_single(req):
-    return render(req, 'home/blog-single.html')
