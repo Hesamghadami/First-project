@@ -96,11 +96,11 @@
 					<div class="col-lg-3  col-md-3 meta-details">
 						<ul class="tags">
 							{% for  tag in post.tag.all %}
-							<li><a href="#">{{tag.name}}</a></li>
+							<li><a href="{% url 'blog:blog_home_with_tag' tag=tag.name %}">{{tag.name}}</a></li>
 							{% endfor %}
 						</ul>
 						<div class="user-details row">
-							<p class="user-name col-lg-12 col-md-12 col-6"><a href="#">{{post.author.username}}</a> <span
+							<p class="user-name col-lg-12 col-md-12 col-6"><a href="{% url 'blog:blog_home_with_username' username=post.author.username %}">{{post.author.username}}</a> <span
 									class="lnr lnr-user"></span></p>
 							<p class="date col-lg-12 col-md-12 col-6"><a href="#">{{post.published_date}}</a> <span
 									class="lnr lnr-calendar-full"></span></p>
