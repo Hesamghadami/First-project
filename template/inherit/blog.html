@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="single-sidebar-widget ads-widget">
-            <a href="#"><img class="img-fluid" src="{% static 'img/blog/ads-banner.jpg' %}" alt=""></a>
+            <a href="{{ADV.link}}"><img class="img-fluid" src="{{ADV.image.url}}" alt=""></a>
         </div>
         <div class="single-sidebar-widget post-category-widget">
             <h4 class="category-title">Post Catgories</h4>
@@ -90,18 +90,10 @@
         <div class="single-sidebar-widget tag-cloud-widget">
             <h4 class="tagcloud-title">Tag Clouds</h4>
             <ul>
-                <li><a href="#">Technology</a></li>
-                <li><a href="#">Fashion</a></li>
-                <li><a href="#">Architecture</a></li>
-                <li><a href="#">Fashion</a></li>
-                <li><a href="#">Food</a></li>
-                <li><a href="#">Technology</a></li>
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Art</a></li>
-                <li><a href="#">Adventure</a></li>
-                <li><a href="#">Food</a></li>
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Adventure</a></li>
+                {% for  tag in tags %}
+                <li><a href="{% url 'blog:blog_home_with_tag' tag=tag.name %}">{{tag.name}}</a></li>
+                {% endfor %}
+
             </ul>
         </div>
     </div>
