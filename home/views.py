@@ -1,19 +1,37 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 from .models import *
+from blog.models import Post
+from .forms import NewsLetterForm, ContactUsForm
 
 def home(req):
-    cheap = CheapPackage.objects.all()
-    luxuray = LuxurayPackage.objects.all()
-    camping = CampingPackage.objects.all()
+    if req.method == 'GET':
+        cheap = CheapPackage.objects.all()
+        luxuray = LuxurayPackage.objects.all()
+        camping = CampingPackage.objects.all()
 
-    context = {'cheap':cheap, 'luxuray':luxuray, 'camping':camping}
-    return render(req, 'home/index.html', context = context)
+        context = {'cheap':cheap, 'luxuray':luxuray, 'camping':camping}
+        return render(req, 'home/index.html', context = context)
+    
+    elif req.method == 'POST':
+        form = NewsLetterForm(req.POST)
+        if form.is_valid():
+            form.save()   
+        return redirect('/')
 
 def about(req):
-    return render(req, 'home/about.html')
+    return render(req,"home/about.html")
 
 def contact(req):
-    return render(req, 'home/contact.html')
+    if req.method == 'GET':
+        return render(req,"home/contact.html")
+    
+    elif req.method == 'POST':
+        form = ContactUsForm(req.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(req.path_info)
 
 
 

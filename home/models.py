@@ -27,7 +27,25 @@ class CampingPackage(models.Model):
         return self.city
 
 
+class Newsletter(models.Model):
+    email = models.EmailField()
 
+    def __str__(self):
+        return self.email
+
+
+class ContactUs(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    subject = models.CharField(max_length=250)
+    message = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ("-created_date",)
+
+    def __str__(self):
+        return self.name
 
 
 
@@ -35,12 +53,5 @@ class CampingPackage(models.Model):
 
     
 
-class Post(models.Model):
-
-    name = models.CharField(max_length= 50)
-    family = models.CharField(max_length= 50)
-    code = models.CharField(max_length= 12)
-    def __str__(self) -> str:
-        return self.city
 
 # Create your models here.

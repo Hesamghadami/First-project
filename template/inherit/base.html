@@ -126,13 +126,12 @@
                             output.
                         </p>
                         <div id="mc_embed_signup">
-                            <form target="_blank"
-                                action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                                method="get" class="subscription relative">
+                            <form action="{% url 'home:home' %}" method="post">
+                                {% csrf_token %}
                                 <div class="input-group d-flex flex-row">
-                                    <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''"
+                                    <input name="email" placeholder="Email Address" onfocus="this.placeholder = ''"
                                         onblur="this.placeholder = 'Email Address '" required="" type="email">
-                                    <button class="btn bb-btn"><span class="lnr lnr-location"></span></button>
+                                    <button type="submit" class="btn bb-btn"><span class="lnr lnr-location"> </span></button>
                                 </div>
                                 <div class="mt-10 info"></div>
                             </form>

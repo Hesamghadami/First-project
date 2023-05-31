@@ -13,6 +13,7 @@ class PostAdmin(admin.ModelAdmin):
 
 admin.site.register(Category)
 admin.site.register(Tags)
+admin.site.register(Comments)
 
 
 
