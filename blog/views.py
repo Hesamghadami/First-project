@@ -139,7 +139,7 @@ def add(req):
           }
           return render(req,'blog/add.html',context=context)
      elif req.method == 'POST':
-          form = PostForm(req.POST)
+          form = PostForm(req.POST, req.FILES)
           if form.is_valid():
                form.save()
                return redirect('/blog/')
