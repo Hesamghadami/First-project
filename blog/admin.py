@@ -15,7 +15,7 @@ admin.site.register(Category)
 admin.site.register(Tags)
 admin.site.register(Comments)
 
-
+admin.site.register(Replay)
 
 
 # Register your models here.

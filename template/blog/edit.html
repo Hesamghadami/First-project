@@ -1,0 +1,15 @@
+{% extends 'inherit/base.html' %}
+{% load static %}
+{% block 'content' %}
+
+<form method="post"><br><br><br><br>
+    {% csrf_token %}
+    <input type="hidden" value="{{comment.id}}" name="which_comment">
+        <div class="form-group col-lg-6 col-md-12 name">
+            <input type="text" class="form-control" name="message" placeholder="Enter message"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
+        </div>
+        
+    <button type="submit">Replay</button>
+</form>
+{% endblock 'content' %}

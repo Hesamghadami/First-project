@@ -1,4 +1,4 @@
-+{% extends 'inherit/base.html' %}
+{% extends 'inherit/base.html' %}
 {% load static %}
 {% block 'title' %}single{% endblock 'title' %}
 {% block 'content' %}
@@ -146,8 +146,15 @@
 								</div>
 							</div>
 							<div class="reply-btn">
-								<a href="" class="btn-reply text-uppercase">reply</a>
+								<a href="{% url 'blog:replay' cid=comment.id %}" class="btn-reply text-uppercase">reply</a>
 							</div>
+							{% for reply in replay %}
+								{% if reply.which_comment.id == comment.id %}
+									{{reply.message}}
+								{% endif %}
+							{% endfor %}
+							<a href="{% url 'blog:delete' cid=comment.id %}" class="btn-reply text-uppercase">Delete</a>
+							<a href="{% url 'blog:edit' cid=comment.id %}" class="btn-reply text-uppercase">Edit</a>
 						</div>
 					</div>
 					{% endfor %}

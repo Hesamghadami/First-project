@@ -1,0 +1,10 @@
+{% extends 'inherit/base.html' %}
+{% load static %}
+{% block 'content' %}
+
+<form method="post"><br><br><br><br>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Add Post</button>
+</form>
+{% endblock 'content' %}

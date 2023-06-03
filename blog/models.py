@@ -57,17 +57,16 @@ class Comments(models.Model):
     
 
 
-class Reply(models.Model):
-    related = models.ForeignKey(Comments, on_delete=models.CASCADE)
-    username = models.ForeignKey(Comments, on_delete=models.CASCADE)
-    text = models.TextField()
+class Replay(models.Model):
+    which_comment = models.ForeignKey(Comments, on_delete=models.CASCADE)
+    message = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ("-created_date",)
 
     def __str__(self):
-        return self.name
-
+        return str(self.which_comment)
 
 
 
