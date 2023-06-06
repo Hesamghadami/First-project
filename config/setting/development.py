@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'home',
     'blog',
     'advertisment',
+    'accounts',
     
 ]
 
@@ -42,3 +43,5 @@ STATICFILES_DIRS = [
     BASE_DIR/'media',
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+AUTH_USER_MODEL = 'accounts.CustumUser'

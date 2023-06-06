@@ -1,0 +1,17 @@
+
+{% extends 'inherit/base.html' %}
+{% load static %}
+{% block 'title' %}Signup{% endblock 'title' %}
+{% block 'content' %}
+
+<form method="post" enctype="multipart/form-data"><br><br><br><br><br>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">submit</button>
+</form>
+{% if messages %}
+    {% for message in    messages  %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
+{% endblock 'content' %}

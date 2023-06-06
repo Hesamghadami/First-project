@@ -88,7 +88,6 @@ def blog_single(req, pid):
                return render(req, 'blog/404.html')
      elif req.method == 'POST':
           form = CommentForm(req.POST)
-          print (req.POST)
           if form.is_valid():
                form.save()
                return redirect('/')

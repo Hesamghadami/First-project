@@ -160,17 +160,18 @@
 					{% endfor %}
 
 				</div>
+				{% if request.user.is_authenticated %}
 				<div class="comment-form">
 					<h4>Leave a Comment</h4>
 					<form method="post">
 						{% csrf_token %}
 						<input type="hidden" value="{{post.id}}" name="which_post">
 							<div class="form-group col-lg-6 col-md-12 name">
-								<input type="text" class="form-control" name="name" placeholder="Enter Name"
+								<input type="hidden" value="{{request.user.username.url}}" class="form-control" name="name" placeholder="Enter Name"
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
 							</div>
 							<div class="form-group col-lg-6 col-md-12 email">
-								<input type="email" class="form-control" name="email" placeholder="Enter email address"
+								<input type="hidden" value="{{request.user.email.url}}" class="form-control"  name="email" placeholder="Enter email address"
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
 							</div>
 						</div>
@@ -185,6 +186,7 @@
 						</div>
 						<button type="submit">Post Comment</a>
 					</form>
+					{% endif %}
 				</div>
 			</div>
 		</div>

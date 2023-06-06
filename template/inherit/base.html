@@ -41,8 +41,16 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-sm-6 col-6 header-top-left">
                         <ul>
-                            <li><a href="#">Visit Us</a></li>
-                            <li><a href="#">Buy Tickets</a></li>
+                            {% if request.user.is_authenticated %}
+                            <img src="{{request.user.image}}" alt="{{request.user.username}}">
+                            <li><a href="#">Loged as {{request.user.username}}</a></li>
+                            <li><a href="{% url 'password_change' %}">Change password</a></li>
+                            <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+                            {% else %}
+                            <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                            <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+                            {% endif %}
+
                         </ul>
                     </div>
                     <div class="col-lg-6 col-sm-6 col-6 header-top-right">
@@ -125,7 +133,7 @@
                             For business professionals caught between high OEM price and mediocre print and graphic
                             output.
                         </p>
-                        <div id="mc_embed_signup">
+
                             <form action="{% url 'home:home' %}" method="post">
                                 {% csrf_token %}
                                 <div class="input-group d-flex flex-row">
@@ -137,7 +145,7 @@
                             </form>
                         </div>
                     </div>
-                </div>
+               
                 <div class="col-lg-3  col-md-6 col-sm-6">
                     <div class="single-footer-widget mail-chimp">
                         <h6 class="mb-20">InstaFeed</h6>

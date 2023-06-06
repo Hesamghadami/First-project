@@ -155,9 +155,11 @@
 						</li>
 					</ul>
 				</nav>
-				<div class="add-post-button">
-					<a href="{% url 'blog:add' %}" class="btn btn-primary">Add New Post</a>
-				  </div>
+				{% if request.user.is_authenticated %}
+					<div class="add-post-button">
+						<a href="{% url 'blog:add' %}" class="btn btn-primary">Add New Post</a>
+				  	</div>
+				{% endif %}
 			</div>
 			{% include 'inherit/blog.html' %}
 		</div>
