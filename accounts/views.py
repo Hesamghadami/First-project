@@ -57,7 +57,10 @@ def signup(req):
             new_user = form.save()
             messages.add_message(req, messages.INFO , 'Thanks for joining us. You are now logged in :)')
             new_user = authenticate(username=form.cleaned_data['username'],
-                                    password=form.cleaned_data['password1'],)
+                                    password=form.cleaned_data['password1'],
+                                    email=form.cleaned_data['email'],
+                                    id_code=form.cleaned_data['id_code'],
+                                    image=form.cleaned_data['image'],)
             login(req, new_user)
             return HttpResponseRedirect("/")
                                     

@@ -26,12 +26,30 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'compressor',
+    'robots',
+    'captcha',
     'home',
     'blog',
     'advertisment',
     'accounts',
     
 ]
+
+SITE_ID = 5
+
+
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
 
 STATIC_ROOT = BASE_DIR.joinpath('/static')
 

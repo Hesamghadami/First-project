@@ -1,4 +1,4 @@
-from django.shortcuts import render , get_object_or_404, redirect
+from django.shortcuts import render , redirect
 from .models import *
 from advertisment.models import AdvertisModel
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage

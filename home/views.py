@@ -8,10 +8,10 @@ from .forms import NewsLetterForm, ContactUsForm
 def home(req):
     if req.method == 'GET':
         cheap = CheapPackage.objects.all()
-        luxuray = LuxurayPackage.objects.all()
+
         camping = CampingPackage.objects.all()
 
-        context = {'cheap':cheap, 'luxuray':luxuray, 'camping':camping}
+        context = {'cheap':cheap, 'camping':camping}
         return render(req, 'home/index.html', context = context)
     
     elif req.method == 'POST':

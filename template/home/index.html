@@ -1,5 +1,7 @@
 {% extends 'inherit/base.html' %}
 {% load static %}
+{% load customtags %}
+{% load humanize %}
 {% block 'title' %}Home{% endblock 'title' %}
 {% block 'content' %}
 
@@ -82,72 +84,7 @@
 
 
 <!-- Start other-issue Area -->
-<section class="other-issue-area section-gap">
-	<div class="container">
-		<div class="row d-flex justify-content-center">
-			<div class="menu-content pb-70 col-lg-9">
-				<div class="title text-center">
-					<h1 class="mb-10">Other issues we can help you with</h1>
-					<p>We all live in an age that belongs to the young at heart. Life that is.</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-3 col-md-6">
-				<div class="single-other-issue">
-					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/o1.jpg' %}" alt="">
-					</div>
-					<a href="#">
-						<h4>Rent a Car</h4>
-					</a>
-					<p>
-						The preservation of human life is the ultimate value, a pillar of ethics and the foundation.
-					</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<div class="single-other-issue">
-					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/o2.jpg' %}" alt="">
-					</div>
-					<a href="#">
-						<h4>Cruise Booking</h4>
-					</a>
-					<p>
-						I was always somebody who felt quite sorry for myself, what I had not got compared.
-					</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<div class="single-other-issue">
-					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/o3.jpg' %}" alt="">
-					</div>
-					<a href="#">
-						<h4>To Do List</h4>
-					</a>
-					<p>
-						The following article covers a topic that has recently moved to center stage–at least it seems.
-					</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<div class="single-other-issue">
-					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/o4.jpg' %}" alt="">
-					</div>
-					<a href="#">
-						<h4>Food Features</h4>
-					</a>
-					<p>
-						There are many kinds of narratives and organizing principles. Science is driven by evidence.
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+{% Issue %}
 <!-- End other-issue Area -->
 <section class="price-area section-gap">
 	<div class="container">
@@ -174,20 +111,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-lg-4">
-				<div class="single-price">
-					<h4>Luxury Packages</h4>
-					<ul class="price-list">
-						{% for item in luxuray %}
-							<li class="d-flex justify-content-between align-items-center">
-								<span>{{item.city}}</span>
-								<a href="#" class="price-btn">${{item.price}}</a>
-						{% endfor %}
-						</li>
-						
-					</ul>
-				</div>
-			</div>
+			{% lux %}
 			<div class="col-lg-4">
 				<div class="single-price">
 					<h4>Camping Packages</h4>
@@ -250,156 +174,32 @@
 		</div>
 		<div class="row">
 			<div class="active-recent-blog-carusel">
+				{% Last_six 20 as last %}
+				{% for post in last %}
 				<div class="single-recent-blog-post item">
 					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/b1.jpg' %}" alt="">
+						<img class="img-fluid" src={{post.image.url}} alt="">
 					</div>
 					<div class="details">
 						<div class="tags">
 							<ul>
+								{% for tag in post.tag.all  %}
 								<li>
-									<a href="#">Travel</a>
+									<a href="#">{{tag.name}}</a>
 								</li>
-								<li>
-									<a href="#">Life Style</a>
-								</li>
+								{% endfor %}
 							</ul>
 						</div>
 						<a href="#">
-							<h4 class="title">Low Cost Advertising</h4>
+							<h4 class="title">{{post.title|upper}}</h4>
 						</a>
 						<p>
-							Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-							farmer.
+							{{post.content|trruncate:3}}...
 						</p>
-						<h6 class="date">31st January,2018</h6>
+						<h6 class="date">{{post.published_date|naturaltime}}</h6>
 					</div>
 				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/b2.jpg' %}" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li>
-									<a href="#">Travel</a>
-								</li>
-								<li>
-									<a href="#">Life Style</a>
-								</li>
-							</ul>
-						</div>
-						<a href="#">
-							<h4 class="title">Creative Outdoor Ads</h4>
-						</a>
-						<p>
-							Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-							farmer.
-						</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/b3.jpg' %}" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li>
-									<a href="#">Travel</a>
-								</li>
-								<li>
-									<a href="#">Life Style</a>
-								</li>
-							</ul>
-						</div>
-						<a href="#">
-							<h4 class="title">It's Classified How To Utilize Free</h4>
-						</a>
-						<p>
-							Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-							farmer.
-						</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/b1.jpg' %}" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li>
-									<a href="#">Travel</a>
-								</li>
-								<li>
-									<a href="#">Life Style</a>
-								</li>
-							</ul>
-						</div>
-						<a href="#">
-							<h4 class="title">Low Cost Advertising</h4>
-						</a>
-						<p>
-							Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-							farmer.
-						</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/b2.jpg' %}" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li>
-									<a href="#">Travel</a>
-								</li>
-								<li>
-									<a href="#">Life Style</a>
-								</li>
-							</ul>
-						</div>
-						<a href="#">
-							<h4 class="title">Creative Outdoor Ads</h4>
-						</a>
-						<p>
-							Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-							farmer.
-						</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/b3.jpg' %}" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li>
-									<a href="#">Travel</a>
-								</li>
-								<li>
-									<a href="#">Life Style</a>
-								</li>
-							</ul>
-						</div>
-						<a href="#">
-							<h4 class="title">It's Classified How To Utilize Free</h4>
-						</a>
-						<p>
-							Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-							farmer.
-						</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
+				{% endfor %}
 
 			</div>
 		</div>
