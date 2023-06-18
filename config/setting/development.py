@@ -29,9 +29,6 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-    'compressor',
-    'robots',
-    'captcha',
     'home',
     'blog',
     'advertisment',
@@ -42,12 +39,12 @@ INSTALLED_APPS = [
 SITE_ID = 5
 
 
-COMPRESS_ENABLED = True
+
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
+
 )
 
 
