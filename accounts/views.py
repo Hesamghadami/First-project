@@ -51,7 +51,7 @@ def signup(req):
     
     elif req.method == 'POST':
         form = SignUpForm(req.POST, req.FILES)
-        print(form)
+        print(req.FILES)
         if form.is_valid():
             form.save()
             new_user = form.save()
@@ -62,6 +62,9 @@ def signup(req):
                                     id_code=form.cleaned_data['id_code'],
                                     image=form.cleaned_data['image'],)
             login(req, new_user)
-            return HttpResponseRedirect("/")
+            return redirect('/')
+        else:
+            messages.add_message(req,messages.ERROR,'Input data is not valid.')
+            return redirect('accounts:login')
                                     
         
