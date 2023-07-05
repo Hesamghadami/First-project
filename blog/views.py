@@ -24,7 +24,7 @@ def blog_home(req, tag=None, username=None, cat=None):
     if req.GET.get('search'):
          posts = Post.objects.filter(content__contains=req.GET.get('search'))
 
-    posts = Paginator(posts, 2)
+    posts = Paginator(posts, 4)
 
     try:
          page_number = req.GET.get('page')
